@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="utf-8">
+    <!-- We need to add babel script for the browser to understand that the script is JSX-->
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <script crossorigin src="https://unpkg.com/react@16/umd/react.development.js"></script>
+    <script crossorigin src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+    <title>ReactJs in HTML</title>
+</head>
+
+<body>
+    <div id="intro"></div>
+    <script type="text/babel">
+        //class component
+        class Intro extends React.Component {
+            state = {
+                empName: 'Yuva Sandeep',
+                id: 30,
+                designation: 'UI Developer',
+                salary:50000,
+                
+            }
+          
+
+            render() {
+                return (
+                    //jsx syntax
+                    <div>
+                        
+                     
+                        Emp Name: {this.state.empName},
+                        Emp ID:{this.state.id},
+                        Designation: {this.state.designation},
+                        Salary: {this.state.salary}
+                    </div>
+                )
+            }
+        }
+
+        ReactDOM.render(<Intro />, document.getElementById('intro'));//what and where
+    </script>
+</body>
+
+</html>

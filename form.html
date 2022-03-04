@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>JS Form Validation</title>
+    <style>
+      .errortxt {
+        color: red;
+        display: none;
+      }
+      .sucesstxt {
+        color: green;
+      }
+      .loginForm {
+        position: relative;
+    left: 465px;
+    top: 59px;
+    background-color: aqua;
+    border-radius: 10px;
+    padding: 50px;
+    width: 400px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+      }
+      #emailaddress{
+        position: relative;
+    left: 30px;
+    width: 266px;
+    height: 21px;
+    border-radius: 5px;
+    border: none;
+      }
+      #password{
+        position: relative;
+    left: -1px;
+    width: 266px;
+    height: 21px;
+    border-radius: 5px;
+    border: none;
+      }
+      #button{
+         padding: 5px 10px;
+         position: relative;
+         left:150px;
+      }
+       
+    </style>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <script>
+      function validateregform() {
+        var email = document.getElementById("emailaddress").value;
+        var emailfilter = /^w+([.-]?w+)*@w+([.-]?w+)*(.w{2,3})+$/;
+        var password = document.getElementById("password").value;
+
+        var agreeterms =
+          document.forms["registrationform"]["agreeterms"].checked;
+
+        if (email !== " " || !emailfilter.text(email)) {
+          document.getElementById("emailerror").style.display = "block";
+        } else {
+          document.getElementById("emailerror").style.display = "none";
+        }
+        if (password == "") {
+          document.getElementById("passworderror").style.display = "block";
+        } else {
+          document.getElementById("passworderror").style.display = "none";
+        }
+
+        if (agreeterms) {
+          document.getElementById("agreetermserror").style.display = "none";
+        } else {
+          document.getElementById("agreetermserror").style.display = "block";
+        }
+
+        return false;
+      }
+    </script>
+  </head>
+  <body>
+    <div class="loginForm">
+      <form
+        name="registrationform"
+        method="post"
+        action="file:///C:/Users/Dell/Desktop/Ecommerce%20Products/index.html"
+        onsubmit="return validateregform()"
+      >
+        <label>Email:</label>
+        <input
+          type="email"
+          name="emailaddress"
+          id="emailaddress"
+          oninput="validateregform()"
+        />
+        <span id="emailerror" class="errortxt"> Please enter valid email </span
+        ><br /><br />
+        <label>Password:</label>
+        <input
+          type="password"
+          name="password"
+          id="password"
+          oninput="validateregform()"
+        />
+        <span id="passworderror" class="errortxt"> Please enter password </span
+        ><br /><br />
+
+        <input
+          type="checkbox"
+          id="agreeterms"
+          name="agreeterms"
+          onclick="validateregform()"
+        />
+        <label for="agreeterms">Please agree to the terms and condition</label
+        ><br />
+        <span id="agreetermserror" class="errortxt"
+          >Please click on above checkbox</span
+        >
+        <br /><br />
+
+        <button type="submit" value="submit" id="button">submit</button>
+      </form>
+    </div>
+  </body>
+</html>
